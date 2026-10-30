@@ -1,0 +1,510 @@
+
+:root {
+    --login-bg: #0b0d18;
+    --login-surface: #131627;
+    --login-primary: #e8b86d;
+    --login-primary-hover: #f2ca8c;
+    --login-text: #f5f5fa;
+    --login-muted: #9ca3b8;
+    --login-border: rgba(255, 255, 255, 0.09);
+}
+
+/* 기본 설정 */
+.login-container,
+.login-container * {
+    box-sizing: border-box;
+}
+
+.login-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    background:
+            radial-gradient(
+                    ellipse at 50% 0%,
+                    rgba(232, 184, 109, 0.09),
+                    transparent 48%
+            ),
+            var(--login-bg);
+
+    color: var(--login-text);
+    font-family: "Pretendard", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
+}
+
+/* 로고 */
+.login-logo {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-logo a {
+    display: inline-block;
+    color: var(--login-primary);
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-logo a:hover {
+    color: var(--login-primary-hover);
+}
+
+.login-logo p {
+    margin-top: 8px;
+    color: var(--login-muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+/* 로그인 카드 */
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 42px 36px 36px;
+
+    background: rgba(19, 22, 39, 0.94);
+    border: 1px solid var(--login-border);
+    border-radius: 18px;
+
+    box-shadow:
+            0 24px 70px rgba(0, 0, 0, 0.28),
+            0 0 40px rgba(232, 184, 109, 0.025);
+}
+
+/* 제목 */
+.login-heading {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.login-heading > span {
+    color: var(--login-primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.login-heading h1 {
+    margin: 12px 0;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.login-heading p {
+    margin: 0;
+    color: var(--login-muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* 입력 폼 */
+.login-form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-form-group label {
+    display: block;
+    margin-bottom: 10px;
+
+    color: #e5e7ef;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.login-form-group input {
+    display: block;
+    width: 100%;
+    height: 49px;
+    padding: 0 14px;
+
+    border: 1px solid #30354b;
+    border-radius: 9px;
+    outline: none;
+
+    background: #0e1120;
+    color: var(--login-text);
+    font-size: 14px;
+
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+}
+
+.login-form-group input::placeholder {
+    color: #737b94;
+}
+
+.login-form-group input:hover {
+    border-color: #454b63;
+}
+
+.login-form-group input:focus {
+    border-color: var(--login-primary);
+    background: #111426;
+    box-shadow: 0 0 0 3px rgba(232, 184, 109, 0.1);
+}
+
+/* 로그인 버튼 */
+.login-button {
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: var(--login-primary);
+    color: #171717;
+
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+
+    transition:
+            background 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+}
+
+.login-button:hover {
+    background: var(--login-primary-hover);
+    box-shadow: 0 6px 20px rgba(232, 184, 109, 0.13);
+    transform: translateY(-1px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.login-button:focus-visible {
+    outline: 2px solid var(--login-primary-hover);
+    outline-offset: 4px;
+}
+
+/* 로그인 오류 메시지 */
+.login-error,
+.login-logout {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.login-error {
+    border: 1px solid rgba(255, 100, 120, 0.15);
+    background: #2a1923;
+    color: #ff9eaa;
+    white-space: pre-line;
+}
+
+.login-logout {
+    border: 1px solid rgba(100, 220, 150, 0.15);
+    background: #203329;
+    color: #9ce2b8;
+}
+
+/* 회원가입 */
+.login-signup {
+    margin-top: 28px;
+    text-align: center;
+    color: var(--login-muted);
+    font-size: 13px;
+}
+
+.login-signup a {
+    margin-left: 5px;
+    color: var(--login-primary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-signup a:hover {
+    color: var(--login-primary-hover);
+    text-decoration: underline;
+}
+
+/* 아이디 / 비밀번호 찾기 */
+.login-find-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 24px;
+    font-size: 12px;
+}
+
+.login-find-links a {
+    color: var(--login-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-find-links a:hover {
+    color: var(--login-primary);
+}
+
+.login-find-links span {
+    color: #454a5d;
+}
+
+/* 키보드 접근성 */
+.login-container a:focus-visible {
+    outline: 2px solid var(--login-primary);
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+/* 모바일 */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px 16px;
+    }
+
+    .login-logo {
+        margin-bottom: 26px;
+    }
+
+    .login-logo a {
+        font-size: 27px;
+    }
+
+    .login-card {
+        max-width: 400px;
+        padding: 30px 22px;
+        border-radius: 15px;
+    }
+
+    .login-heading {
+        margin-bottom: 28px;
+    }
+
+    .login-heading h1 {
+        font-size: 25px;
+    }
+}
+
+/* 애니메이션 감소 설정 */
+@media (prefers-reduced-motion: reduce) {
+    .login-container *,
+    .login-container *::before,
+    .login-container *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 전화번호 입력 행 */
+.phone-number-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+/* 전화번호 입력창과 셀렉트 */
+.login-form-group .phone-number-row input,
+.login-form-group .phone-number-row select {
+    height: 49px;
+    min-width: 0;
+    padding: 0 8px;
+    border: 1px solid #30354b;
+    border-radius: 9px;
+    outline: none;
+    background: #0e1120;
+    color: var(--login-text);
+    font-size: 14px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* 앞자리 선택 */
+.login-form-group .phone-number-row select {
+    flex: 0 0 82px;
+    cursor: pointer;
+}
+
+/* 가운데와 마지막 번호 */
+.login-form-group .phone-number-row input {
+    flex: 1;
+    width: 0;
+}
+
+/* 포커스 효과 */
+.login-form-group .phone-number-row input:focus,
+.login-form-group .phone-number-row select:focus {
+    border-color: var(--login-primary);
+    box-shadow: 0 0 0 3px rgba(232, 184, 109, 0.1);
+}
+
+/* 하이픈 */
+.phone-hyphen {
+    color: var(--login-muted);
+    flex-shrink: 0;
+}
+
+/* 비밀번호 일치 여부 */
+.password-match {
+    margin: 8px 0 0;
+    font-size: 12px;
+}
+
+.password-match.success {
+    color: #9ce2b8;
+}
+
+.password-match.error {
+    color: #ff9eaa;
+}
+
+/* 비활성화된 버튼 */
+.login-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+/* 아이디 찾기 결과 */
+.find-id-result {
+    text-align: center;
+    padding: 10px 0 0;
+}
+
+.find-id-result p {
+    margin: 0 0 18px;
+    color: var(--login-muted);
+    font-size: 14px;
+}
+
+.find-id-result strong {
+    display: block;
+    padding: 18px 12px;
+    border: 1px solid rgba(232, 184, 109, 0.25);
+    border-radius: 9px;
+    background: #0e1120;
+    color: var(--login-primary);
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.find-id-login-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    margin-top: 22px;
+    border-radius: 9px;
+    background: var(--login-primary);
+    color: #171717;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.find-id-login-button:hover {
+    background: var(--login-primary-hover);
+}
+/* 이메일 입력창과 중복확인 버튼을 한 줄로 배치 */
+.login-form-group .login-email-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 이메일 입력창 */
+.login-form-group .login-email-row .login-email-input {
+    display: block;
+    flex: 1 1 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    height: 48px;
+    margin: 0 !important;
+    padding: 0 14px;
+    box-sizing: border-box;
+
+    border: 1px solid #343a52;
+    border-radius: 9px;
+    background-color: #0e1120;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+.login-form-group .login-email-row .login-email-input::placeholder {
+    color: #858ba4;
+}
+
+.login-form-group .login-email-row .login-email-input:focus {
+    border-color: #7775ff;
+    box-shadow: 0 0 0 3px rgba(119, 117, 255, 0.15);
+}
+
+/* 중복확인 버튼 */
+.login-form-group .login-email-row .email-check-button {
+    display: inline-flex !important;
+    flex: 0 0 100px !important;
+    align-items: center;
+    justify-content: center;
+
+    height: 48px;
+    margin: 0 !important;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    border: 1px solid #7775ff !important;
+    border-radius: 9px !important;
+    background: #7775ff !important;
+    color: #ffffff !important;
+
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.login-form-group .login-email-row .email-check-button:hover:not(:disabled) {
+    background: #625ff0 !important;
+    border-color: #625ff0 !important;
+}
+
+.login-form-group .login-email-row .email-check-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* 중복확인 결과 메시지 */
+.login-form-group .email-check-message {
+    margin: 8px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.login-form-group .email-check-message.success {
+    color: #4ade80;
+}
+
+.login-form-group .email-check-message.error {
+    color: #f87171;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image/x-icon" href="/images/SiSt.ico">
+<title>SistTicket 메인</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+<script src="/resources/cdn-main/example.js"></script>
+<style>
+ span.material-symbols-outlined{
+    vertical-align: text-bottom;
+ }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="main"><a href="#" style="position: absolute;top:30px;">HOON HOme</a></h1>
+  <ul>
+    <th:block th:if="${#authorization.expression('isAnonymous()')}">
+      <li>
+        <a th:href="@{http://localhost:5173/member/login}">로그인</a>
+      </li>
+      <li>
+        <a th:href="@{http://localhost:5173/member/signup}">회원가입</a>
+      </li>
+    </th:block>
+
+    <th:block th:if="${#authorization.expression('isAuthenticated()')}">
+      <li class="welcome-message">
+        <span sec:authentication="principal.member.name"></span>님 반갑습니다.
+      </li>
+      
+      <li sec:authorize="hasRole('ROLE_ADMIN')">
+        <a th:href="@{http://localhost:5173/admin}">관리자 콘솔</a>
+      </li>
+
+      <li sec:authorize="!hasRole('ROLE_ADMIN')">
+        <a href="http://localhost:5173/mypage">마이페이지</a>
+      </li>
+
+      <li>
+        <form th:action="@{/logout}" method="post">
+          <button type="submit" class="logout-button btn btn-primary">
+            로그아웃
+          </button>
+        </form>
+      </li>
+    </th:block>
+  </ul>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-label">SIST TICKET</span>
+      <h2>당신의 다음 순간,<br>무대 위에서</h2>
+      <p>
+        기다려 온 공연을 만나고<br>
+        잊지 못할 순간을 예매하세요.
+      </p>
+      <a th:href="@{/concert/list}" class="btn btn-primary">
+        공연 둘러보기 →
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">최신 인기 공연</h2>
+    <p class="section-description">
+      지금 주목받는 뮤지컬과 공연을 만나보세요.
+    </p>
+
+    <div class="concert-grid">
+      <article class="concert-card" th:each="concert : ${latestConcerts}">
+        <div class="concert-poster">
+          <img th:src="${concert.posterUrl}"
+               alt="공연 포스터">
+        </div>
+        <div class="concert-info">
+          <span class="concert-category" th:text="${concert.category}">MUSICAL</span>
+          
+          <h3 class="concert-title" th:text="${concert.title}">뮤지컬 공연 제목</h3>
+          
+          <p class="concert-meta" th:text="${concert.venueName}">서울 · 공연장</p>
+          
+          <p class="concert-meta" th:text="${#strings.substring(concert.startDate, 0, 10)} + ' ~ ' + ${#strings.substring(concert.endDate, 0, 10)}">2026.11.01 ~ 2026.12.31</p>
+          
+          <a th:href="@{|/concert/${concert.concertId}|}"
+             class="btn btn-primary">예매하기</a>
+        </div>
+      </article>
+    </div>
+
+  </section>
+</main>
+
+</body>
+<footer>
+  <p><strong>SistTicket</strong></p>
+  <p>당신의 특별한 순간을 위한 티켓팅 서비스</p>
+  <p>© 2026 SistTicket. All rights reserved.</p>
+</footer>
+</html>
