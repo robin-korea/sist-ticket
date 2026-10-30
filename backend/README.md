@@ -1,4 +1,4 @@
-# SISTTICKET backend
+# SISTTICKET Backend
 
 <p align="left">
   <img src="https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white" alt="Java 21" />
