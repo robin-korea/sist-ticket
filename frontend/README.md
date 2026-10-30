@@ -9,8 +9,8 @@
 
 **SISTTICKET Frontend**는 공연을 탐색하고 회차별 좌석을 선택한 뒤 주문 및 모의 결제 흐름으로 이어질 수 있도록 구성한 React 웹 애플리케이션입니다. 일반 사용자 화면과 관리자 화면을 React Router로 분리했으며, **/api** 요청은 개발 중 Vite 프록시를 통해 Spring Boot 백엔드로 전달합니다.
 
-- **Frontend:** [hohun21/sistticket-frontend](https://github.com/hohun21/sistticket-frontend)
-- **Backend:** [hohun21/SistTicket](https://github.com/hohun21/SistTicket)
+- **Frontend:** [robin-korea/sist-ticket/frontend](https://github.com/robin-korea/sist-ticket/tree/main/frontend)
+- **Backend:** [robin-korea/sist-ticket/backend](https://github.com/robin-korea/sist-ticket/tree/main/backend)
 
 > 결제 화면은 현재 코드상 성공·실패 시나리오를 처리하는 모의 결제 흐름입니다. 실제 PG사 결제창 연동으로 오해되지 않도록 구분합니다. 관리자 매출 메뉴는 현재 플레이스홀더 화면입니다.
 
@@ -139,13 +139,13 @@ flowchart LR
 ### 사전 준비
 
 - Node.js 및 npm
-- 실행 중인 [SISTTICKET Backend](https://github.com/hohun21/SistTicket)
+- 실행 중인 [SISTTICKET Backend](https://github.com/robin-korea/sist-ticket/tree/main/backend)
 
 ### 설치 및 개발 서버 실행
 
 ~~~bash
-git clone https://github.com/hohun21/sistticket-frontend.git
-cd sistticket-frontend
+git clone https://github.com/robin-korea/sist-ticket.git
+cd sist-ticket/frontend
 npm install
 npm run dev
 ~~~
@@ -197,4 +197,4 @@ npm run preview
 
 ---
 
-**Backend repository:** [hohun21/SistTicket](https://github.com/hohun21/SistTicket)
+**Backend repository:** [robin-korea/sist-ticket/backend](https://github.com/robin-korea/sist-ticket/tree/main/backend)
