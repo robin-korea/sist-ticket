@@ -10,8 +10,8 @@
 
 **SISTTICKET**은 공연 탐색부터 회차별 좌석 선택, 좌석 선점, 주문·결제 상태 관리까지 이어지는 공연 예매 웹 애플리케이션입니다. 회원용 화면과 관리자 화면을 분리하고, 좌석 선점 만료와 주문 상태 전이를 서버에서 처리하도록 구성했습니다.
 
-- **Backend:** [hohun21/SistTicket](https://github.com/hohun21/SistTicket)
-- **Frontend:** [hohun21/sistticket-frontend](https://github.com/hohun21/sistticket-frontend)
+- **Backend:** [robin-korea/sist-ticket/backend](https://github.com/robin-korea/sist-ticket/tree/main/backend)
+- **Frontend:** [robin-korea/sist-ticket/frontend](https://github.com/robin-korea/sist-ticket/tree/main/frontend)
 
 > 결제는 코드상 모의 성공·실패 시나리오를 처리하며, 외부 PG사의 실결제 연동은 확인되지 않았습니다. 매출 관리 메뉴 등 아직 구현되지 않은 화면은 별도로 표시했습니다.
 
@@ -195,8 +195,8 @@ db/
 ### 2. 저장소 내려받기
 
 ~~~bash
-git clone https://github.com/hohun21/SistTicket.git
-cd SistTicket
+git clone https://github.com/robin-korea/sist-ticket.git
+cd sist-ticket/backend
 ~~~
 
 ### 3. 데이터베이스 및 설정 준비
@@ -239,11 +239,10 @@ macOS / Linux:
 
 ### 5. 프런트엔드 실행
 
-별도 터미널에서 프런트엔드 저장소를 실행합니다.
+별도 터미널에서 프런트엔드 폴더로 이동하여 실행합니다.
 
 ~~~bash
-git clone https://github.com/hohun21/sistticket-frontend.git
-cd sistticket-frontend
+cd ../frontend
 npm install
 npm run dev
 ~~~
@@ -267,6 +266,7 @@ java -jar build/libs/생성된-jar-파일명.jar
 ### Frontend
 
 ~~~bash
+cd ../frontend
 npm run build
 ~~~
 
@@ -298,4 +298,4 @@ npm run build
 
 ---
 
-**Frontend repository:** [hohun21/sistticket-frontend](https://github.com/hohun21/sistticket-frontend)
+**Frontend repository:** [robin-korea/sist-ticket/frontend](https://github.com/robin-korea/sist-ticket/tree/main/frontend)
